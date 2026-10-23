@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>RandomFood OwO!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: bisque;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 15px 30px;
+            background-color: rgb(93, 52, 34);
+            color: bisque;
+            -webkit-text-stroke: 1px black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1, .navbar h2 {
+            margin: 0;
+        }
+
+        .random-btn {
+            background-color: rgb(64, 36, 24);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 15px;
+        }
+
+        .random-btn:hover {
+            background-color: rgb(93, 52, 34);
+        }
+
+        .food-img {
+            width: 495px;
+            height: 396px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .random {
+            text-align: center;
+            background-color: rgb(165, 132, 118);
+            padding: 30px 20px;
+            color: white;
+            font-size: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #ffe6a7;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #f4f1de;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div><h2>69070238</h2></div>
+        <div><h1>Khananart Worasaksirikun</h1></div>
+        <div><h2>week15</h2></div>
+    </nav>
+
+    <div class="random">
+        <img id="foodImg" class="food-img" src="YAYSilence.gif" alt="รูปอาหาร">
+        <div id="foodTitle" class="title">กดปุ่มเพื่อสุ่มเมนู</div>
+        <div id="foodPrice" class="price">-</div>
+        <div id="foodDesc" class="description">กดปุ่มด้านล่างเพื่อเลือกเมนูอาหารเย็นนี้</div>
+        <button class="random-btn" onclick="randomFood()">Random some food.</button>
+    </div>
+
+    <script>
+        const menuList = [
+            {
+                name: "ไก่ทอด",
+                price: "40-70 บาท",
+                description: "มีหลายสูตรและหลายรสชาติแต่สิ่งที่เหมือนกันคือ อร่อย!",
+                image: "ไก่ทอด.jpg"
+            },
+            {
+                name: "ไข่เจียวหมูสับ",
+                price: "50-60 บาท",
+                description: "เมนูเรียบง่ายแต่อร่อยมาก อยากกิน.....",
+                image: "ไข่เจียวหมูสับ.webp"
+            },
+            {
+                name: "คอหมูย่าง",
+                price: "70-90 บาท",
+                description: "คอหมูย่างรสเด็ด! เนื้อชุ่มฉ่ำ น้ำจิ้มอร่อย!",
+                image: "คอหมูย่าง.jpg"
+            },
+            {
+                name: "สเต๊กไก่",
+                price: "69-79 บาท",
+                description: "เนื้อไก่นุ่ม เฟรนฟรายกรอบ พร้อมกับผักกินคู่กัน",
+                image: "สเต็กไก่.jpg"
+            },
+            {
+                name: "หมูกรอบคั่วพริกเกลือ",
+                price: "60-80 บาท",
+                description: "หมูกรอบๆ ผสมกับความเค็มและเผ็ดของวัตถุดิบ",
+                image: "หมูกรอบคั่วพริกเกลือ.jpg"
+            },
+            {
+                name: "ไกย่าง",
+                price: "100-200 บาท",
+                description: "ไก่ย่างเนื้อแน่น รสถึงเครื่องปรุง พร้อมน้ำจิ้มแสนอร่อย (แต่ในรูปนี้ไม่มีน้ำจิ้ม...XD)",
+                image: "ไก่ย่าง.jpg"
+            }
+        ];
+
+        function randomFood() {
+            const randomIndex = Math.floor(Math.random() * menuList.length);
+            const selectedMenu = menuList[randomIndex];
+            document.getElementById('foodImg').src = selectedMenu.image;
+            document.getElementById('foodTitle').textContent = selectedMenu.name;
+            document.getElementById('foodPrice').textContent = selectedMenu.price;
+            document.getElementById('foodDesc').textContent = selectedMenu.description;
+        }
+    </script>
+</body>
+</html>
